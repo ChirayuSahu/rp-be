@@ -26,6 +26,10 @@ WHERE sp1.Vtyp = @invoiceType
                 status = 'Dispatched';
             } else if(result.recordset[0].SyncTag === '5'){
                 status = 'Ready for Dispatch';
+            } else if(result.recordset[0].SyncTag === '3' || result.recordset[0].SyncTag === '4'){
+                status = 'Picking Stage';
+            } else if(result.recordset[0].SyncTag === '2'){
+                status = 'Printed';
             } else {
                 status = 'Processing';
             }
